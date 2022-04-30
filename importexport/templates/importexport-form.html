@@ -1,0 +1,48 @@
+<div id="box_scrap" class="box box-info" ng-controller="ImportExportCtrl">
+  <div class="box-header with-border"><!--<h3 class="box-title">Scraping and Getting Return</h3>--></div>
+  <div class="box-body">
+    <label for=""><span id="log-span" ng-class="snippets.loginObj.class">{[ snippets.loginObj.title ]}</span></label>
+    <label class="pull-right login-button-wrapper" ng-show="!snippets.loginObj.value || snippets.loginObj.loggedin">
+        <input data-toggle="toggle" type="checkbox" name="check-login" ng-change="snippets.login()" ng-model="snippets.loginObj.value"> 
+    </label>
+    <input hidden id="phpsessid" type="text" value="" ng-model="snippets.phpsessid">
+    <hr class="hr-normal">
+    <div class="box-body">
+      <div class="form-group">
+        <label for="title">Snippet Title:</label>
+        <input type="text" class="form-control" id="title" placeholder="Title imported from sheet" maxlength="70" ng-readonly="snippets.form.readonly.title" ng-model="snippets.form.title"/>
+        <div class="maxlength-badge" ng-show="snippets.form.title"><span>{[ snippets.form.title.length ]} / 70</span></div>
+      </div>
+      <div class="form-group">
+        <label for="description">Snippet Description:</label>
+        <textarea rows="3" class="form-control" id="description" placeholder="Description imported from sheet" maxlength="225" minlength = "150"  ng-readonly="snippets.form.readonly.description" ng-model="snippets.form.description"></textarea>
+        <div class="maxlength-badge" ng-show="snippets.form.description"><span>{[ snippets.form.description.length ]} / 225</span></div>
+      </div>
+      <div class="form-group" ng-show="snippets.form.keywords">
+        <label for="keywords">Keywords:</label>
+        <input type="text" class="form-control" id="keywords" placeholder="Keywords" readonly="true" ng-model="snippets.form.keywords"/>
+        <div class="help-text">Diese Keywords dürfen gemäß Onboarding Guidlines nur minimal verändert werden.</div>
+      </div>
+    {% comment %}
+      <div class="form-group">
+        <label for="timeout">Timeout:</label>
+        <input type="number" min="0" max="300" class="form-control" id="timeout" placeholder="Timeout" ng-model="snippets.form.timeout" ng-readonly="snippets.form.readonly.timeout"/>
+      </div>
+    {% endcomment %}
+      <div class="form-group" ng-show="snippets.total">
+        <label>Total: </label>
+        <label id="total-label" ng-show="snippets.total">{[ snippets.total ]}</label>
+      </div>
+      <div class="progress" id="progressbar" ng-show="snippets.progressbar.show">
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width:0%;" ng-style="snippets.progressbar.style"></div>
+      </div>
+    </div>
+  </div>
+  <div class="box-footer clearfix">
+    <span class="pull-left label label-primary" style="min-height:30px;padding:10px;" ng-show="snippets.profile.name">{[ snippets.profile.name ]}</span>
+    <button class="btn btn-sm btn-success btn-flat pull-right" ng-class="snippets.form.startBtn.class" ng-click="snippets.form.startBtn.click()">
+      <i class='pull-right fa fa-refresh fa-spin' ng-show="snippets.form.spin"></i>
+      <span ng-show="!snippets.form.spin"> Start </span>
+    </button>
+  </div>
+</div>

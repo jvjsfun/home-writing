@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% load staticfiles %}
+{% block title %}Home{% endblock %}
+{% block stylesheets %}
+  {{ block.super }}
+  <style>
+    .maxlength-badge {
+      position: absolute;
+      width: 100%;
+      float: right;
+    }
+
+    .maxlength-badge span {
+      position: absolute;
+      right: 40px;
+      top: 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  </style>
+{% endblock stylesheets %}
+{% block middle %}
+  <!-- This is the main dashboard. Its divided by two panel, the first for control snippets and second for show history --> 
+  <section class="content-header">
+    <h1></h1>
+    <ol class="breadcrumb">
+      <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Home </a></li>
+    </ol>
+  </section>
+  <br />
+  <!-- Section 1 - Snippet Panel -->
+  <section class="col-md-3"></section>
+  <section class="col-md-6" ng-app="HomewritingApp">
+    {% include 'importexport-form.html' %}
+  </section>
+{% endblock %}
+
+{% block javascripts %}
+  {{ block.super }}
+  <script src="{% static '/angularjs/angularjs1.7.6.min.js' %}"></script>
+  <script type="text/javascript">
+    let timeout = '{{ timeout|default:"0" }}';
+  </script>
+  <script src="{% static '/utils/ng-importexport.js' %}"></script>
+{% endblock %}

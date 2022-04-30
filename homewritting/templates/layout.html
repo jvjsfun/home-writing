@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Main {% endblock title %}
+{% block content %}
+<div class="wrapper">
+    <header class="main-header">
+        {% block top_navigation %}
+            {% include "./top_navigation.html" %}
+        {% endblock top_navigation %}
+    </header>
+
+    <section class="content-wrapper">
+        {% block middle %} 
+        {% endblock middle %}
+    </section>
+</div>
+{% endblock content %}

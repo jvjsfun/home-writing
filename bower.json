@@ -1,0 +1,23 @@
+{
+  "name": "homewriting",
+  "description": "mark project",
+  "main": "manage.py",
+  "keywords": [
+    "django",
+    "python",
+    "bootstrap"
+  ],
+  "authors": [
+    "Danilo Oliveira"
+  ],
+  "license": "MIT",
+  "homepage": "homewriting.de",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
